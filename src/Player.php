@@ -3,7 +3,11 @@
  */
 class Player
 {
-  public $cards;
+  public $cards = array();
 
+  public function receiveCard($card)
+  {
+    array_push($this->cards, $card);
+  }
 }
  ?>

@@ -12,7 +12,8 @@ class Deck
   $this->cards = $this->createCards();
 }
 
-  private function createCards() {
+  private function createCards()
+  {
     $cards = array();
     foreach ($this->suits as $suit) {
       foreach ($this->values as $value) {
