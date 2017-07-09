@@ -9,10 +9,11 @@ require './src/Deck.php';
        // a deck has 52cards, card on the top is King of diamonds
        // card on the bottom is Ace of hearts
         $deck = new Deck();
-        $this->assertEquals(count($deck->cards), 52);
+        $this->assertEquals(52, count($deck->cards));
 
-        $this->assertEquals($deck->cards[0], 'Kd');
-        $this->assertEquals($deck->cards[51], 'Ah');
+        $this->assertEquals('Kd', $deck->cards[0]);
+        
+        $this->assertEquals('Ah', $deck->cards[51]);
      }
  }
  ?>
