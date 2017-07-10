@@ -1,6 +1,6 @@
-<?php /**
- * Understands how to store cards
- */
+<?php
+// Understands how to store cards
+
 class Player
 {
   public $cards = array();

@@ -1,6 +1,6 @@
-<?php /**
- * Understands how to create a deck
- */
+<?php
+// Understands how to create a deck
+
 class Deck
 {
   public $cards;
