@@ -8,7 +8,7 @@
 ## Features
 * Standard 52-card deck
 * The game has 4 players by default
-* The deck arrives in perfect sequence(bottom &#127153; -> top &#127182;)
+* The deck arrives in perfect sequence(bottom: Ace of hearts, top: King of diamonds)
 * The cards are shuffled when a new hand starts
 * In a new hand 7 cards are dealt to the players by default
 
