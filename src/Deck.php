@@ -8,9 +8,9 @@ class Deck
   private $values = array('K', 'Q', 'J', '10', '9', '8', '7', '6', '5', '4', '3', '2', 'A');
 
   function __construct()
-{
-  $this->cards = $this->createCards();
-}
+  {
+    $this->cards = $this->createCards();
+  }
 
   private function createCards()
   {
@@ -23,4 +23,4 @@ class Deck
     return $cards;
   }
 }
- ?>
+?>

@@ -10,4 +10,4 @@ class Player
     array_push($this->cards, $card);
   }
 }
- ?>
+?>
