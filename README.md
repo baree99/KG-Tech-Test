@@ -1,22 +1,221 @@
-# PHP Developer Task
+# Kurt Geiger Tech Test - Peter Barcsak
 
-This task is to create simple class files to showcase your PHP programming skills. Where you would normally want to produce the least amount of code to achieve a given task, this is a special case where we are looking to see the range of your abilities.
+## Approach
+* In order to make the game easily extendable/changeable, some of the rules were implemented with dependency injection
+* Giving single responsibilities to each functions makes the code easily reusable when necessarily
+* Creating the deck from values and suits can reduce mistakes and ease the way to change the cards
 
-## Therefore:
-* Feel free to implement your solution in an elaborate fashion. Showcase your skills in object-orientation and design patterns, for example, but please do feel free to showcase skillset in other programming or PHP related abilities.
-* Include your tests. We would like to see your development approach, whether you have built this in a test-driven way, or not.
+## Features
+* Standard 52-card deck
+* The game has 4 players by default
+* The deck arrives in perfect sequence(bottom &#127153; -> top &#127182;)
+* The cards are shuffled when a new hand starts
+* In a new hand 7 cards are dealt to the players by default
 
-Your implementation and the reasoning behind it will then form part of the decision making in terms of your candidacy later in the hiring process.
+## Objects
+```
+Deck ---> Dealer ---> Game <--- Player
+```
 
-## The scenario is as follows:
-* You have a deck of 52 cards, comprised of 4 suits (hearts, clubs, spades and diamonds) each with 13 values (Ace, two, three, four, five, six, seven, eight, nine, ten, jack, queen and king).
-* There are four players waiting to play around a table.
-* The deck arrives in perfect sequence (so, ace of hearts is at the bottom, two of hearts is next, etc. all the way up to king of diamonds on the top).
+## Installing dependencies
+```
+composer install
+```
 
-The task is a simple one. Please create a simple command line program that when executed recreates the scenario above and then performs the following two actions:
-* Shuffle the cards  - We would like to take the deck that is in sequence and shuffle it so that no two cards are still in sequence.
-* Deal the cards - We would then like to deal seven cards to each player (one card to the each player, then a second card to each player, and so on)
+## Running tests
+```
+./vendor/bin/phpunit tests
+```
 
-There is no need to necessarily do this in a visual way (for example, simply proving with a test that your deck is shuffled and that the players do now have seven cards will be sufficient)
+## How the code is used
+```
+Interactive mode enabled
 
-Please supply your solution as a zip file containing any classes, tests, documentation, etc that you have produced.
+php > require_once './src/Game.php';
+php > $game = new Game();
+php > print_r($game->players);
+Array
+(
+    [0] => Player Object
+        (
+            [cards] => Array
+                (
+                )
+
+        )
+
+    [1] => Player Object
+        (
+            [cards] => Array
+                (
+                )
+
+        )
+
+    [2] => Player Object
+        (
+            [cards] => Array
+                (
+                )
+
+        )
+
+    [3] => Player Object
+        (
+            [cards] => Array
+                (
+                )
+
+        )
+
+)
+php > print_r($game->dealer->deck->cards);
+Array
+(
+    [0] => Kd
+    [1] => Qd
+    [2] => Jd
+    [3] => 10d
+    [4] => 9d
+    [5] => 8d
+    [6] => 7d
+    [7] => 6d
+    [8] => 5d
+    [9] => 4d
+    [10] => 3d
+    [11] => 2d
+    [12] => Ad
+    [13] => Ks
+    [14] => Qs
+    [15] => Js
+    [16] => 10s
+    [17] => 9s
+    [18] => 8s
+    [19] => 7s
+    [20] => 6s
+    [21] => 5s
+    [22] => 4s
+    [23] => 3s
+    [24] => 2s
+    [25] => As
+    [26] => Kc
+    [27] => Qc
+    [28] => Jc
+    [29] => 10c
+    [30] => 9c
+    [31] => 8c
+    [32] => 7c
+    [33] => 6c
+    [34] => 5c
+    [35] => 4c
+    [36] => 3c
+    [37] => 2c
+    [38] => Ac
+    [39] => Kh
+    [40] => Qh
+    [41] => Jh
+    [42] => 10h
+    [43] => 9h
+    [44] => 8h
+    [45] => 7h
+    [46] => 6h
+    [47] => 5h
+    [48] => 4h
+    [49] => 3h
+    [50] => 2h
+    [51] => Ah
+)
+php > $game->newHand();
+php > print_r($game->players);
+Array
+(
+    [0] => Player Object
+        (
+            [cards] => Array
+                (
+                    [0] => Js
+                    [1] => Kh
+                    [2] => 7d
+                    [3] => 2s
+                    [4] => 8c
+                    [5] => 5h
+                    [6] => 8d
+                )
+
+        )
+
+    [1] => Player Object
+        (
+            [cards] => Array
+                (
+                    [0] => 2h
+                    [1] => 9s
+                    [2] => Ah
+                    [3] => 9c
+                    [4] => 5s
+                    [5] => 7c
+                    [6] => Ad
+                )
+
+        )
+
+    [2] => Player Object
+        (
+            [cards] => Array
+                (
+                    [0] => 10c
+                    [1] => Ac
+                    [2] => Kc
+                    [3] => Ks
+                    [4] => Qc
+                    [5] => 10s
+                    [6] => 3d
+                )
+
+        )
+
+    [3] => Player Object
+        (
+            [cards] => Array
+                (
+                    [0] => Jd
+                    [1] => Jh
+                    [2] => 2d
+                    [3] => 9h
+                    [4] => 10h
+                    [5] => As
+                    [6] => Jc
+                )
+
+        )
+
+)
+php > print_r($game->dealer->deck->cards);
+Array
+(
+    [0] => 7h
+    [1] => 8h
+    [2] => 3s
+    [3] => 6c
+    [4] => 5c
+    [5] => 4h
+    [6] => 9d
+    [7] => 8s
+    [8] => 4c
+    [9] => Kd
+    [10] => 4d
+    [11] => 3h
+    [12] => 7s
+    [13] => 6s
+    [14] => 4s
+    [15] => 6h
+    [16] => Qs
+    [17] => 5d
+    [18] => Qd
+    [19] => 3c
+    [20] => 2c
+    [21] => Qh
+    [22] => 6d
+    [23] => 10d
+)
+```

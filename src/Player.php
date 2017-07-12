@@ -1,5 +1,5 @@
 <?php
-// Understands how to store cards
+// Understands how to receive cards
 
 class Player
 {
