@@ -10,6 +10,7 @@ class Dealer
     require_once './src/Deck.php';
     $this->deck = new Deck();
   }
+  
   public function shuffleDeck()
   {
     shuffle($this->deck->cards);

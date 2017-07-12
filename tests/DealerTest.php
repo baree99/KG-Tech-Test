@@ -23,7 +23,7 @@ require './src/Dealer.php';
 
         $this->assertEquals($firstCardInDeck, $dealer->deal());
 
-        $this->assertEquals($cardsRemainingAfterDeal, count($dealer->deck->cards));
+        $this->assertCount($cardsRemainingAfterDeal, $dealer->deck->cards);
      }
  }
  ?>

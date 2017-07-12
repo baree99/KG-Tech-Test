@@ -11,7 +11,7 @@ require './src/Deck.php';
         $firstCard = 'Kd';
         $lastCard = 'Ah';
 
-        $this->assertEquals($numberOfCards, count($deck->cards));
+        $this->assertCount($numberOfCards, $deck->cards);
 
         $this->assertEquals($firstCard, $deck->cards[0]);
 
